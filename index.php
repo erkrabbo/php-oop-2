@@ -24,14 +24,16 @@
         }
         
         public function cartTotal(){
-            if ($this->card_expire_date != null){
-                $total = 0;
-                foreach($this->cart as $item){
-                    $total += $item->getPrice();
-                }
-    
-                return $total * $this->discount_factor;
+            $total = 0;
+            foreach($this->cart as $item){
+                $total += $item->getPrice();
             }
+
+            return $total * $this->discount_factor;
+        }
+
+        public function validateCard() {
+            return $this->card_expire_date !=null ? true : false;
         }
     }
 

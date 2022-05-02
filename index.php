@@ -74,15 +74,15 @@
                 $this->availability_end = date("Y-m-d", $end);
             }
 
-            // $this->check_availability();
+            $this->check_availability();
         }
 
-        // public function check_availability(){
-        //     if ($this->availability_start != null || $this->availability_end != null) {
-        //         if (!(time() - strtotime($this->availability_start) > 0 && time() - strtotime($this->availability_end) < 0))
-        //         $this->available_now = false;
-        //     }
-        // }
+        public function check_availability(){
+            if ($this->availability_start != null || $this->availability_end != null) {
+                if (!(time() - strtotime($this->availability_start) > 0 && time() - strtotime($this->availability_end) < 0))
+                $this->available_now = false;
+            }
+        }
 
         public function getPrice(){
             return $this->price_cents / 100;
@@ -102,8 +102,3 @@
     var_dump($user);
     var_dump($user2);
     var_dump($item);
-
-    $prova = time() - null;
-
-    var_dump(time());
-    var_dump($prova);

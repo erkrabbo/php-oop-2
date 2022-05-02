@@ -12,7 +12,9 @@
         }
 
         public function addToCart(object $article){
-            $this->cart[] = $article;
+            if ($article->available_now) {
+                $this->cart[] = $article;
+            }
         }
 
         public function addCardDate(string $date){
